@@ -40,11 +40,16 @@ function printData() {
 };
 
 
+//få fram dagens datum
+const date = new Date();
+date.toLocaleDateString('sv-SE');
 
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let currentDate = `${day}/${month}-${year}`;
 
-
-
-
+document.getElementById('datum').innerHTML = currentDate;
 
 
 //fetchar datan med alla våra städer i
