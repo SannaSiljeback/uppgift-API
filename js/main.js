@@ -36,6 +36,7 @@ let divCities = document.getElementById('div-cities');
 let datum = document.getElementById('datum');
 let huvudstad = document.getElementById('huvudstad');
 let cities = document.getElementById('cities');
+let timeZone = document.getElementById('timezone');
 let rightBtn = document.getElementById('right-btn');
 let leftBtn = document.getElementById('left-btn');
 
@@ -48,8 +49,6 @@ let pDawn = document.getElementById('dawn');
 let divSunset = document.getElementById('div-sunset');
 let pSunset = document.getElementById('sunset');
 let pdusk = document.getElementById('dusk');
-let divGoldenHour = document.getElementById('div-goldenHour');
-let pGoldenHour = document.getElementById('pGoldenHour');
 
 
 //få fram dagens datum
@@ -83,14 +82,29 @@ async function fetchData(url) {
         let data = await response.json();
         
 
-        //hittar alla objekt och sen ett specifikt i det objektet, här hittar den sunrise inuti results
+        //hittar grund objektet
         let resultsObject = data.results; // får ut hela objektet
         console.log(resultsObject); 
+        //hittar ett specifikt objekt i grund objektet
+        let timeZoneValue = resultsObject.timezone;
+        timeZone.innerHTML = timeZoneValue;
 
-        let sunriseValue = resultsObject.sunrise; // får ut sunrise objektet
-        console.log(sunriseValue); 
+        let dayLengthValue = resultsObject.day_length;
+        pDayLenght.innerHTML = dayLengthValue;
 
+        let sunriseValue = resultsObject.sunrise;
         pSunrise.innerHTML = sunriseValue;
+
+        let dawnValue = resultsObject.dawn;
+        pDawn.innerHTML = dawnValue;
+
+        let sunsetValue = resultsObject.sunset;
+        pSunset.innerHTML = sunsetValue;
+
+        let duskValue = resultsObject.dusk;
+        pdusk.innerHTML = duskValue;
+
+
 
 
     
