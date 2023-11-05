@@ -2,12 +2,12 @@
 
 //url från https://sunrisesunset.io/api/ hemsidan
 const sweUrl = "https://api.sunrisesunset.io/json?lat=59.329&lng=18.068";
-/* const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
+const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
 const argUrl = "https://api.sunrisesunset.io/json?lat=-34.607&lng=-58.437";
 const caUrl = "https://api.sunrisesunset.io/json?lat=45.420&lng=-75.690";
 const jpnUrl = "https://api.sunrisesunset.io/json?lat=35.684&lng=139.774";
 const nzlUrl = "https://api.sunrisesunset.io/json?lat=-41.288&lng=174.777";
-const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417"; */
+const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417";
 
 //städerna för urln
 //sweUrl = stockholm
@@ -17,16 +17,6 @@ const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417"; */
 //jpnUrl = tokyo
 //nzlUrl = wellington
 //zaUrl = kapstaden
-
-
-//parametrar i apin
-//allt ligger inuti results
-//sunrise
-//sunset
-//dusk
-//dawn
-//golden_hour
-//day_length
 
 
 //hämtar alla idn
@@ -40,7 +30,7 @@ let timeZone = document.getElementById('timezone');
 let rightBtn = document.getElementById('right-btn');
 let leftBtn = document.getElementById('left-btn');
 
-let divInfo = document.getElementById('divInfo');
+let divInfo = document.getElementById('div-info');
 let divDayLength = document.getElementById('div-dayLength');
 let pDayLenght = document.getElementById('day-length');
 let divSunrise = document.getElementById('div-sunrise');
@@ -63,14 +53,12 @@ let currentDate = `${day}/${month}-${year}`;
 document.getElementById('datum').innerHTML = currentDate;
 
 
-
-//gamla sättet att skriva på
-/* fetch("https://date.nager.at/api/v3/publicholidays/2023/SE")
-.then(res => res.json())
-.then(data => console.log(data)) */
+// för att göra data global, behövs det??
+let data = "";
 
 
-//samma som den över men nyare sättet
+
+//fetchar och error hanterar
 async function fetchData(url) {
     try {
         let response = await fetch(url);
@@ -79,43 +67,44 @@ async function fetchData(url) {
             throw new Error(`HTTP error code: ${response.status}, HTTP error message: ${response.statusText}`);
         }
 
-        let data = await response.json();
-        
-
-        //hittar grund objektet
-        let resultsObject = data.results; // får ut hela objektet
-        console.log(resultsObject); 
-        //hittar ett specifikt objekt i grund objektet
-        let timeZoneValue = resultsObject.timezone;
-        timeZone.innerHTML = timeZoneValue;
-
-        let dayLengthValue = resultsObject.day_length;
-        pDayLenght.innerHTML = dayLengthValue;
-
-        let sunriseValue = resultsObject.sunrise;
-        pSunrise.innerHTML = sunriseValue;
-
-        let dawnValue = resultsObject.dawn;
-        pDawn.innerHTML = dawnValue;
-
-        let sunsetValue = resultsObject.sunset;
-        pSunset.innerHTML = sunsetValue;
-
-        let duskValue = resultsObject.dusk;
-        pdusk.innerHTML = duskValue;
-
-
-
-
-    
+        data = await response.json(); //data funkar inte, varför?
+        return data; //behövs en return här?
 
     } catch (error) {
         console.log(error);
         document.getElementById('error').innerHTML = "OPPS OPPS";
     }
-
-    /* return data; */ //behövs en return här?
     
+};
+
+
+//få denna att fungera på alla url, borde funka eftersom man ej satt in just tex swe url någonstans?? alla har ju samma parametrar?
+function printData () {
+    /* divInfo.innerHTML = ""; */
+
+    //hittar grund objektet
+    let resultsObject = data.results; // får ut hela objektet
+    /* console.log(resultsObject);  */
+
+    //hittar ett specifikt objekt i grund objektet
+    let timeZoneValue = resultsObject.timezone;
+    timeZone.innerHTML = timeZoneValue;
+
+    let dayLengthValue = resultsObject.day_length;
+    pDayLenght.innerHTML = dayLengthValue;
+
+    let sunriseValue = resultsObject.sunrise;
+    pSunrise.innerHTML = sunriseValue;
+
+    let dawnValue = resultsObject.dawn;
+    pDawn.innerHTML = dawnValue;
+
+    let sunsetValue = resultsObject.sunset;
+    pSunset.innerHTML = sunsetValue;
+
+    let duskValue = resultsObject.dusk;
+    pdusk.innerHTML = duskValue;
+
 };
 
 
