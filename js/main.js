@@ -4,6 +4,7 @@
 const sweUrlDefault = "https://api.sunrisesunset.io/json?lat=59.329&lng=18.068";
 const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
 const argUrl = "https://api.sunrisesunset.io/json?lat=-34.607&lng=-58.437";
+const auUrl = "https://api.sunrisesunset.io/json?lat=-33.868&lng=151.209";
 /* const caUrl = "https://api.sunrisesunset.io/json?lat=45.420&lng=-75.690";
 const jpnUrl = "https://api.sunrisesunset.io/json?lat=35.684&lng=139.774";
 const nzlUrl = "https://api.sunrisesunset.io/json?lat=-41.288&lng=174.777";
@@ -15,6 +16,7 @@ const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417";
 //sweUrl = stockholm
 //espUrl = barcelona
 //argUrl = buenos aires
+//auUrl = sydney
 //caUrl = ottawa
 //jpnUrl = tokyo
 //nzlUrl = wellington
@@ -113,13 +115,15 @@ async function fetchData(url) {
 let urlArray = [
     sweUrlDefault,
     espUrl,
-    argUrl
+    argUrl,
+    auUrl
 ]
 //array för att koppla namn till varje url
 let cityNames = [
     "Stockholm",
     "Madrid",
-    "Buenos Aires"
+    "Buenos Aires",
+    "Sydney"
 ]
 
 
