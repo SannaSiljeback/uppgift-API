@@ -1,13 +1,15 @@
 //variabler med olika url som man sen kan sätta in i fetchfunctionen för att slippa göra flera olika funktioner
 
 //url från https://sunrisesunset.io/api/ hemsidan
-const sweUrl = "https://api.sunrisesunset.io/json?lat=59.329&lng=18.068";
+const sweUrlDefault = "https://api.sunrisesunset.io/json?lat=59.329&lng=18.068";
 const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
 const argUrl = "https://api.sunrisesunset.io/json?lat=-34.607&lng=-58.437";
-const caUrl = "https://api.sunrisesunset.io/json?lat=45.420&lng=-75.690";
+/* const caUrl = "https://api.sunrisesunset.io/json?lat=45.420&lng=-75.690";
 const jpnUrl = "https://api.sunrisesunset.io/json?lat=35.684&lng=139.774";
 const nzlUrl = "https://api.sunrisesunset.io/json?lat=-41.288&lng=174.777";
 const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417";
+ */
+
 
 //städerna för urln
 //sweUrl = stockholm
@@ -68,7 +70,35 @@ async function fetchData(url) {
         }
 
         data = await response.json(); //data funkar inte, varför?
-        return data; //behövs en return här?
+        /* return data;  *///behövs en return här?
+
+
+        //talar om hur den ska bygga koden
+
+        //hittar grund objektet
+        let resultsObject = data.results; // får ut hela objektet
+
+        //hittar ett specifikt objekt i grund objektet
+        let timeZoneValue = resultsObject.timezone;
+        timeZone.innerHTML = timeZoneValue;
+
+        let dayLengthValue = resultsObject.day_length;
+        pDayLenght.innerHTML = dayLengthValue;
+
+        let sunriseValue = resultsObject.sunrise;
+        pSunrise.innerHTML = sunriseValue;
+
+        let dawnValue = resultsObject.dawn;
+        pDawn.innerHTML = dawnValue;
+
+        let sunsetValue = resultsObject.sunset;
+        pSunset.innerHTML = sunsetValue;
+
+        let duskValue = resultsObject.dusk;
+        pdusk.innerHTML = duskValue;
+
+        huvudstad.innerText = `${cityNames[startingIndex]}`
+    
 
     } catch (error) {
         console.log(error);
@@ -78,43 +108,142 @@ async function fetchData(url) {
 };
 
 
-//få denna att fungera på alla url, borde funka eftersom man ej satt in just tex swe url någonstans?? alla har ju samma parametrar?
-function printData () {
-    /* divInfo.innerHTML = ""; */
+//lösning för blädder funktion med array
+//array för olika url
+let urlArray = [
+    sweUrlDefault,
+    espUrl,
+    argUrl
+]
+//array för att koppla namn till varje url
+let cityNames = [
+    "Stockholm",
+    "Madrid",
+    "Buenos Aires"
+]
 
-    //hittar grund objektet
-    let resultsObject = data.results; // får ut hela objektet
-    /* console.log(resultsObject);  */
 
-    //hittar ett specifikt objekt i grund objektet
-    let timeZoneValue = resultsObject.timezone;
-    timeZone.innerHTML = timeZoneValue;
+let startingIndex = 0;
 
-    let dayLengthValue = resultsObject.day_length;
-    pDayLenght.innerHTML = dayLengthValue;
+//gör så att svenska sidan visas som default
+fetchData(sweUrlDefault);
 
-    let sunriseValue = resultsObject.sunrise;
-    pSunrise.innerHTML = sunriseValue;
 
-    let dawnValue = resultsObject.dawn;
-    pDawn.innerHTML = dawnValue;
+function fetchNext(){
+    /* startingIndex = (startingIndex +1) % urlArray.length;
+    fetchData(urlArray[startingIndex]); */
+    if (startingIndex + 1 < urlArray.length) {
+        startingIndex += 1;
+    } else {
+        startingIndex = 0;
+    }
+    fetchData(urlArray[startingIndex]);
+}
 
-    let sunsetValue = resultsObject.sunset;
-    pSunset.innerHTML = sunsetValue;
+function fetchPrev(){
+    /* startingIndex = (startingIndex -1 + urlArray.length) % urlArray.length;
+    fetchData(urlArray[startingIndex]); */
+    if (startingIndex - 1 >= 0) {
+        startingIndex -= 1;
+    } else {
+        startingIndex = urlArray.length - 1;
+    }
+    fetchData(urlArray[startingIndex]);
+}
 
-    let duskValue = resultsObject.dusk;
-    pdusk.innerHTML = duskValue;
 
-};
+
+
+
+
+//OLIKA LÖSNINGAR FÖR KNAPPARNA
+//lösning 4, funktar, bara 2 funktioner
+/* function fetchNext() {
+    switch (startingUrl) {
+        case sweUrl:
+            startingUrl = espUrl;
+            break;
+        case espUrl:
+            startingUrl = argUrl;
+            break;
+        case argUrl:
+            startingUrl = sweUrl;
+            break;
+        default:
+            break;
+    }
+
+    fetchData(startingUrl);
+}
+
+function fetchPrev() {
+    switch (startingUrl) {
+        case sweUrl:
+            startingUrl = argUrl;
+            break;
+        case espUrl:
+            startingUrl = sweUrl;
+            break;
+        case argUrl:
+            startingUrl = espUrl;
+            break;
+        default:
+            break;
+    }
+
+    fetchData(startingUrl);
+}
+ */
+
+
+//lösning som funkar, dock 4 funktioner för 2 knappar
+/* let startingUrl = sweUrl;
+
+function nextUrlSwitch(startingUrl) {
+    switch (startingUrl) {
+        case sweUrl:
+            return espUrl;
+        case espUrl:
+            return argUrl;
+        case argUrl:
+            return sweUrl;
+        default:
+            return startingUrl;
+    }
+}
+
+function prevUrlSwitch(startingUrl) {
+    switch (startingUrl) {
+        case sweUrl:
+            return argUrl;
+        case espUrl:
+            return sweUrl;
+        case argUrl:
+            return espUrl;
+        default:
+            return startingUrl;
+    }
+}
+
+function fetchNext() {
+    startingUrl = nextUrlSwitch(startingUrl);
+    fetchData(startingUrl);
+}
+
+function fetchPrev() {
+    startingUrl = prevUrlSwitch(startingUrl);
+    fetchData(startingUrl);
+} */
+
 
 
 
 
 //fetchar datan med alla våra städer i
-fetchData(sweUrl);
+/* fetchData(sweUrl); */
 /* fetchData(espUrl);
-fetchData(argUrl);
-fetchData(caUrl);
+fetchData(argUrl); */
+/* fetchData(caUrl);
 fetchData(jpnUrl);
 fetchData(nzlUrl);
 fetchData(zaUrl); */
