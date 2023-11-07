@@ -1,0 +1,25 @@
+body {
+    font-family: 'Heebo';
+    background-image: url('../img/skog.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#div-cities {
+    background-color: pink;
+}
+
+#div-info {
+    background-color: lightblue;
+}
+
+#div-left-btn {
+    display: flex;
+    justify-content: end;
+}
+
+#div-right-btn {
+    display: flex;
+    justify-content: start;
+}
