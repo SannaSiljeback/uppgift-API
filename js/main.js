@@ -5,11 +5,6 @@ const sweUrlDefault = "https://api.sunrisesunset.io/json?lat=59.329&lng=18.068";
 const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
 const argUrl = "https://api.sunrisesunset.io/json?lat=-34.607&lng=-58.437";
 const auUrl = "https://api.sunrisesunset.io/json?lat=-33.868&lng=151.209";
-/* const caUrl = "https://api.sunrisesunset.io/json?lat=45.420&lng=-75.690";
-const jpnUrl = "https://api.sunrisesunset.io/json?lat=35.684&lng=139.774";
-const nzlUrl = "https://api.sunrisesunset.io/json?lat=-41.288&lng=174.777";
-const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417";
- */
 
 
 //städerna för urln
@@ -17,48 +12,33 @@ const zaUrl = "https://api.sunrisesunset.io/json?lat=-33.928&lng=18.417";
 //espUrl = barcelona
 //argUrl = buenos aires
 //auUrl = sydney
-//caUrl = ottawa
-//jpnUrl = tokyo
-//nzlUrl = wellington
-//zaUrl = kapstaden
 
 
-//hämtar alla idn
-let divContainer = document.getElementById('container');
-
-let divCities = document.getElementById('div-cities');
+//hämtar alla idn som behövs
 let datum = document.getElementById('datum');
-let huvudstad = document.getElementById('huvudstad');
-let cities = document.getElementById('cities');
+let city = document.getElementById('city');
 let timeZone = document.getElementById('timezone');
 let rightBtn = document.getElementById('right-btn');
 let leftBtn = document.getElementById('left-btn');
 
-let divInfo = document.getElementById('div-info');
-let divDayLength = document.getElementById('div-dayLength');
-let pDayLenght = document.getElementById('day-length');
-let divSunrise = document.getElementById('div-sunrise');
-let pSunrise = document.getElementById('sunrise');
-let pDawn = document.getElementById('dawn');
-let divSunset = document.getElementById('div-sunset');
-let pSunset = document.getElementById('sunset');
-let pdusk = document.getElementById('dusk');
+let dayLenght = document.getElementById('day-length');
+
+let sunrise = document.getElementById('sunrise');
+let dawn = document.getElementById('dawn');
+
+let sunset = document.getElementById('sunset');
+let dusk = document.getElementById('dusk');
 
 
 //få fram dagens datum
-const date = new Date();
+let date = new Date();
 date.toLocaleDateString('sv-SE');
-
 let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
 let currentDate = `${day}/${month}-${year}`;
 
 document.getElementById('datum').innerHTML = currentDate;
-
-
-// för att göra data global, behövs det??
-let data = "";
 
 
 
@@ -70,10 +50,9 @@ async function fetchData(url) {
         if (response.ok === false) {
             throw new Error(`HTTP error code: ${response.status}, HTTP error message: ${response.statusText}`);
         }
-
-        data = await response.json(); //data funkar inte, varför?
-        /* return data;  *///behövs en return här?
-
+        
+        let data = await response.json(); 
+    
 
         //talar om hur den ska bygga koden
 
@@ -85,22 +64,22 @@ async function fetchData(url) {
         timeZone.innerHTML = timeZoneValue;
 
         let dayLengthValue = resultsObject.day_length;
-        pDayLenght.innerHTML = dayLengthValue;
+        dayLenght.innerHTML = dayLengthValue;
 
         let sunriseValue = resultsObject.sunrise;
-        pSunrise.innerHTML = sunriseValue;
+        sunrise.innerHTML = sunriseValue;
 
         let dawnValue = resultsObject.dawn;
-        pDawn.innerHTML = dawnValue;
+        dawn.innerHTML = dawnValue;
 
         let sunsetValue = resultsObject.sunset;
-        pSunset.innerHTML = sunsetValue;
+        sunset.innerHTML = sunsetValue;
 
         let duskValue = resultsObject.dusk;
-        pdusk.innerHTML = duskValue;
+        dusk.innerHTML = duskValue;
 
-        huvudstad.innerText = `${cityNames[startingIndex]}`
-    
+        city.innerText = `${cityNames[urlIndex]}`
+
 
     } catch (error) {
         console.log(error);
@@ -109,9 +88,13 @@ async function fetchData(url) {
     
 };
 
+//gör så att svenska sidan visas som default
+fetchData(sweUrlDefault);
+
+
 
 //lösning för blädder funktion med array
-//array för olika url
+//array för mina olika url
 let urlArray = [
     sweUrlDefault,
     espUrl,
@@ -119,59 +102,67 @@ let urlArray = [
     auUrl
 ]
 //array för att koppla namn till varje url
-let cityNames = [
+const cityNames = [
     "Stockholm",
     "Madrid",
     "Buenos Aires",
     "Sydney"
-]
+] 
 
 
-let startingIndex = 0;
-
-//gör så att svenska sidan visas som default
-fetchData(sweUrlDefault);
-
+let urlIndex = 0;
 
 function fetchNext(){
-    /* startingIndex = (startingIndex +1) % urlArray.length;
-    fetchData(urlArray[startingIndex]); */
-    if (startingIndex + 1 < urlArray.length) {
-        startingIndex += 1;
+    urlIndex = (urlIndex +1) % urlArray.length;
+    fetchData(urlArray[urlIndex]);
+
+    /* if (urlIndex + 1 < urlArray.length) {
+        urlIndex += 1;
     } else {
-        startingIndex = 0;
+        urlIndex = 0;
     }
-    fetchData(urlArray[startingIndex]);
-}
+    fetchData(urlArray[urlIndex]); */
+};
 
 function fetchPrev(){
-    /* startingIndex = (startingIndex -1 + urlArray.length) % urlArray.length;
-    fetchData(urlArray[startingIndex]); */
-    if (startingIndex - 1 >= 0) {
-        startingIndex -= 1;
-    } else {
-        startingIndex = urlArray.length - 1;
-    }
-    fetchData(urlArray[startingIndex]);
-}
+    urlIndex = (urlIndex -1 + urlArray.length) % urlArray.length;
+    fetchData(urlArray[urlIndex]);
 
+    /* if (urlIndex - 1 >= 0) {
+        urlIndex -= 1;
+    } else {
+        urlIndex = urlArray.length - 1;
+    }
+    fetchData(urlArray[urlIndex]); */
+};
 
 
 
 
 
 //OLIKA LÖSNINGAR FÖR KNAPPARNA
-//lösning 4, funktar, bara 2 funktioner
+//lösning 2, funkar, bara 2 funktioner
+// funktion till switch case
+/* function cityInfo(cityName) {
+    city.innerText = cityName;
+
+} */
+
+
+/* let startingUrl = sweUrlDefault; */
 /* function fetchNext() {
     switch (startingUrl) {
-        case sweUrl:
+        case sweUrlDefault:
             startingUrl = espUrl;
+            cityInfo("Madrid");
             break;
         case espUrl:
             startingUrl = argUrl;
+            cityInfo("Buenos Aires");
             break;
         case argUrl:
-            startingUrl = sweUrl;
+            startingUrl = sweUrlDefault;
+            cityInfo("Stockholm");
             break;
         default:
             break;
@@ -182,22 +173,25 @@ function fetchPrev(){
 
 function fetchPrev() {
     switch (startingUrl) {
-        case sweUrl:
+        case sweUrlDefault:
             startingUrl = argUrl;
+            cityInfo("Buenos Aires");
             break;
         case espUrl:
-            startingUrl = sweUrl;
+            startingUrl = sweUrlDefault;
+            cityInfo("Stockholm");
             break;
         case argUrl:
             startingUrl = espUrl;
+            cityInfo("Madrid");
             break;
         default:
             break;
     }
 
     fetchData(startingUrl);
-}
- */
+} */
+
 
 
 //lösning som funkar, dock 4 funktioner för 2 knappar
@@ -238,17 +232,3 @@ function fetchPrev() {
     startingUrl = prevUrlSwitch(startingUrl);
     fetchData(startingUrl);
 } */
-
-
-
-
-
-//fetchar datan med alla våra städer i
-/* fetchData(sweUrl); */
-/* fetchData(espUrl);
-fetchData(argUrl); */
-/* fetchData(caUrl);
-fetchData(jpnUrl);
-fetchData(nzlUrl);
-fetchData(zaUrl); */
-
