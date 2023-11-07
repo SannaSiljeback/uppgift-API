@@ -1,31 +1,16 @@
-//variabler med olika url som man sen kan sätta in i fetchfunctionen för att slippa göra flera olika funktioner
-
-//url från https://sunrisesunset.io/api/ hemsidan
+//apier från https://sunrisesunset.io/api/
 const sweUrlDefault = "https://api.sunrisesunset.io/json?lat=59.329&lng=18.068";
 const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
 const argUrl = "https://api.sunrisesunset.io/json?lat=-34.607&lng=-58.437";
 const auUrl = "https://api.sunrisesunset.io/json?lat=-33.868&lng=151.209";
 
 
-//städerna för urln
-//sweUrl = stockholm
-//espUrl = barcelona
-//argUrl = buenos aires
-//auUrl = sydney
-
-
-//hämtar alla idn som behövs
-let datum = document.getElementById('datum');
+//hämtar idn som behövs
 let city = document.getElementById('city');
 let timeZone = document.getElementById('timezone');
-let rightBtn = document.getElementById('right-btn');
-let leftBtn = document.getElementById('left-btn');
-
 let dayLenght = document.getElementById('day-length');
-
 let sunrise = document.getElementById('sunrise');
 let dawn = document.getElementById('dawn');
-
 let sunset = document.getElementById('sunset');
 let dusk = document.getElementById('dusk');
 
@@ -37,7 +22,6 @@ let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
 let currentDate = `${day}/${month}-${year}`;
-
 document.getElementById('datum').innerHTML = currentDate;
 
 
@@ -50,7 +34,7 @@ async function fetchData(url) {
         if (response.ok === false) {
             throw new Error(`HTTP error code: ${response.status}, HTTP error message: ${response.statusText}`);
         }
-        
+
         let data = await response.json(); 
     
 
@@ -80,12 +64,10 @@ async function fetchData(url) {
 
         city.innerText = `${cityNames[urlIndex]}`
 
-
     } catch (error) {
         console.log(error);
         document.getElementById('error').innerHTML = "OPPS OPPS";
     }
-    
 };
 
 //gör så att svenska sidan visas som default
@@ -100,14 +82,14 @@ let urlArray = [
     espUrl,
     argUrl,
     auUrl
-]
+];
 //array för att koppla namn till varje url
 const cityNames = [
     "Stockholm",
     "Madrid",
     "Buenos Aires",
     "Sydney"
-] 
+];
 
 
 let urlIndex = 0;
