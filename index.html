@@ -15,12 +15,14 @@
         <div id="div-cities">
 
             <p id="datum"></p>
-            <p id="huvudstad">Huvudstad</p>
+            <p id="city"></p>
 
-            <p id="cities"></p>
 
-            <button>Höger</button>
-            <button>Vänster</button>
+            <p id="timezone"></p>
+
+            
+            <button id="right-btn" onclick="fetchPrev()" >Vänster</button>
+            <button id="left-btn" onclick="fetchNext()">Höger</button>
 
         </div>
 
@@ -28,6 +30,7 @@
 
             <div id="div-dayLength">
                 <p>Dagens längd</p>
+                <p id="day-length"></p>
             </div>
 
             <div id="div-sunrise">
@@ -40,15 +43,10 @@
 
             <div id="div-sunset">
                 <p>Solnedgång</p>
-                <p id="sunrise"></p>
+                <p id="sunset"></p>
 
                 <p>Skymning</p>
                 <p id="dusk"></p>
-            </div>
-
-            <div id="div-goldenHour">
-                <p>Golden hour</p>
-                <p id="golden-hour"></p>
             </div>
 
         </div>
