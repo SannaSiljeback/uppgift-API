@@ -6,11 +6,22 @@ body {
     background-size: cover;
 }
 
-#div-cities {
-    background-color: pink;
+#div-container {
+    margin-top: 100px;
 }
 
-#div-info {
+#div-cities {
+    background-color: pink;
+    margin-bottom: 150px;
+}
+
+#div-sunrise {
+    background-color: lightblue;
+}
+#div-dayLength {
+    background-color: pink;
+}
+#div-sunset {
     background-color: lightblue;
 }
 
