@@ -27,6 +27,7 @@ body {
     font-weight: bold;
     font-size: 1.2em;
     margin-top: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #glass-effect {
@@ -45,18 +46,20 @@ body {
 }
 
 
-#div-sunrise {
+#div-sunrise-dawn {
     /* background-color: lightblue; */
     display: flex;
+    justify-content: center;
     
 }
 #div-dayLength {
     /* background-color: pink; */
 
 }
-#div-sunset {
+#div-sunset-dusk {
     /* background-color: lightblue; */
     display: flex;
+    justify-content: center;
     
 }
 
@@ -71,6 +74,7 @@ body {
     outline: none;
     border: none;
     font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #div-right-btn {
@@ -84,5 +88,6 @@ body {
     outline: none;
     border: none;
     font-size: 1.2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
