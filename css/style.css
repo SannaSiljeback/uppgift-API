@@ -6,7 +6,7 @@ body {
 
 #div-cities {
     height: 350px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     background-image: url('../img/sjö.jpg');
     /* box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.176); */
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18);
@@ -47,8 +47,18 @@ body {
 
 #div-sunrise-dawn {
     display: flex;
+    /* justify-content: center; */
+}
+
+#sunrise-img {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+#div-dayLength {
     justify-content: center;
-    padding-right: 0px;
+    /* margin-top: 70px; */
 }
 
 #div-sunrise {
@@ -59,13 +69,15 @@ body {
     margin-right: 50px;
 }
 
-#div-dayLength {
-
-}
-
 #div-sunset-dusk {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+}
+
+#sunset-img {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 20px;
 }
 
 #div-sunset {
