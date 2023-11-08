@@ -1,15 +1,7 @@
 body {
     font-family: 'Heebo';
     font-size: x-large;
-    /* background-image: url('../img/skog.jpg'); */
-    /* background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover; */
     background-color: #FBE8C5;
-}
-
-#div-container {
-    /* margin-top: 0px; */
 }
 
 #div-cities {
@@ -18,8 +10,6 @@ body {
     background-image: url('../img/sjö.jpg');
     /* box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.176); */
     box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18);
-    /* background-repeat: no-repeat; */
-    /* background-attachment: fixed; */
     background-size: 100% 100%;
 }
 
@@ -39,28 +29,51 @@ body {
 }
 
 #city {
-    padding-top: 25px;
+    padding-top: 35px;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
+
+#tidszon {
+    margin: 0;
+}
+
 #timezone {
     padding-bottom: 20px;
+    font-style: italic;
+    font-size: 0.9em;
 }
 
 
 #div-sunrise-dawn {
-    /* background-color: lightblue; */
     display: flex;
     justify-content: center;
-    
+    padding-right: 0px;
 }
+
+#div-sunrise {
+    margin-right: 50px;
+}
+
+#div-dawn {
+    margin-right: 50px;
+}
+
 #div-dayLength {
-    /* background-color: pink; */
 
 }
+
 #div-sunset-dusk {
-    /* background-color: lightblue; */
     display: flex;
     justify-content: center;
-    
+}
+
+#div-sunset {
+    margin-left: 50px;
+}
+
+#div-dusk {
+    margin-left: 50px;
 }
 
 #div-left-btn {
