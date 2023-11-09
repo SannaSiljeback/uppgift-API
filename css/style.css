@@ -4,17 +4,25 @@ body {
     background-color: #FBE8C5;
 }
 
-#div-cities {
-    height: 350px;
-    margin-bottom: 70px;
-    background-image: url('../img/sjö.jpg');
-    /* box-shadow: 0px 16px 48px 0px rgba(0, 0, 0, 0.176); */
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22), 0 5px 14px 0 rgba(0, 0, 0, .18);
-    background-size: 100% 100%;
+/* styling for texts */
+#margin {
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 0.95em;
 }
 
-.flex {
-    justify-content: center;
+.time-text {
+    font-size: 0.95em;
+}
+
+/* styling for first row */
+#div-cities {
+    height: 350px;
+    background-image: url('../img/sjö.jpg');
+    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22),
+                0 5px 14px 0 rgba(0, 0, 0, .18);
+    background-size: 100% 100%;
+    border-radius: 20px;
 }
 
 #datum {
@@ -48,14 +56,32 @@ body {
     font-size: 0.9em;
 }
 
+/* styling for second row */
+.divs-sun {
+    justify-content: center;
+    margin-top: 80px;
+
+    background-color: rgba(218, 176, 128, 0.6); 
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.1);
+}
+
+/* styling för sunrise kolumnen */
 #sunrise-img {
     width: 150px;
     height: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 #div-sunrise-dawn {
     justify-content: center;
+    background-color: rgba(218, 176, 128, 0.6);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 #div-sunrise {
@@ -66,37 +92,44 @@ body {
     margin-right: 45px;
 }
 
-#day-length-img {
-    width: 150px;
-    height: 150px;
-}
-
-#day-length-arrow {
-    font-size: 1.5em;
-}
-
+/* styling för day length kolumnen */
 #div-dayLength {
     justify-content: center;
+    margin-top: -50px;
 }
 
+#dayLength-img {
+    width: 140px;
+    height: 90px;
+    margin-bottom: 10px;
+}
+
+/* styling för sunset kolumnen */
 #sunset-img {
     width: 150px;
     height: 100px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 #div-sunset {
     padding-right: 74px;
-    
 }
+
 #div-dusk {
     margin-right: 18px;
 }
 
 #div-sunset-dusk {
     justify-content: center;
+
+    background-color: rgba(218, 176, 128, 0.6);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
 }
 
+/* styling för knappar */
 #div-left-btn {
     display: flex;
     justify-content: end;
