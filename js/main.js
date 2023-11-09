@@ -35,7 +35,7 @@ async function fetchData(url) {
         //hittar grund objektet i apit
         let resultsObject = data.results;
 
-        //hittar de specifika objekten i grund objektet
+        //hittar de specifika objekten inuti grund objektet
         let timeZoneValue = resultsObject.timezone;
         timeZone.innerHTML = timeZoneValue;
 
@@ -63,13 +63,12 @@ async function fetchData(url) {
 
     } catch (error) {
         console.log(error);
-        document.getElementById('error').innerHTML = "OPPS OPPS";
+        document.getElementById('error').innerHTML = "Ett oväntat fel uppstod. Vänligen försök igen senare";
     }
 };
 
 //gör så att svenska sidan visas som default
 fetchData(sweUrlDefault);
-
 
 //array för de olika url
 let urlArray = [
@@ -87,7 +86,7 @@ const cityNames = [
     "Sydney"
 ];
 
-//lösning för blädder funktion genom knapparna med arrayen
+//lösning för kunna bläddra genom apierna med knapparna
 let urlIndex = 0;
 
 function fetchNext(){
