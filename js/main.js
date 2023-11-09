@@ -48,19 +48,24 @@ async function fetchData(url) {
         timeZone.innerHTML = timeZoneValue;
 
         let dayLengthValue = resultsObject.day_length;
-        dayLenght.innerHTML = dayLengthValue;
+        let dayLengthValueTim = dayLengthValue + '<br>TIM';
+        dayLenght.innerHTML = dayLengthValueTim;
 
         let sunriseValue = resultsObject.sunrise;
-        sunrise.innerHTML = sunriseValue;
+        let sunriseValueBr = sunriseValue.replace('AM', '<br>AM');
+        sunrise.innerHTML = sunriseValueBr;
 
         let dawnValue = resultsObject.dawn;
-        dawn.innerHTML = dawnValue;
+        let dawnValueBr = dawnValue.replace('AM', '<br>AM');
+        dawn.innerHTML = dawnValueBr;
 
         let sunsetValue = resultsObject.sunset;
-        sunset.innerHTML = sunsetValue;
+        let sunsetValueBr = sunsetValue.replace('PM', '<br>PM');
+        sunset.innerHTML = sunsetValueBr;
 
         let duskValue = resultsObject.dusk;
-        dusk.innerHTML = duskValue;
+        let duskValueBr = duskValue.replace('PM', '<br>PM');
+        dusk.innerHTML = duskValueBr;
 
         city.innerText = `${cityNames[urlIndex]}`
 

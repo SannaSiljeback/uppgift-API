@@ -26,18 +26,69 @@
                 <div id="glass-effect">
                     <p id="city"></p>
                     <br>
-
-                    <p id="tidszon">Tidszon:</p>
+                    <p id="tidszon-text">Tidszon:</p>
                     <p id="timezone"></p>
                 </div>
             </div>
             
             <div id="div-right-btn" class="col align-self-center">
+
             <button id="right-btn" onclick="fetchNext()"><i class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
 
-        <div id="div-img" class="row">
+
+
+        <div id="div-info" class="row">
+
+            <div class="col">
+                <div class="flex" class="row">
+                    <img id="sunrise-img" src="img/sunrise ps.png" alt="en ikon för en soluppgång">
+                </div>
+
+                <div id="div-sunrise-dawn" class="d-flex flex-row">
+                    <div id="div-sunrise">
+                        <p>Soluppgång</p>
+                        <p id="sunrise"></p>
+                    </div>
+                    <div id="div-dawn">
+                        <p>Gryning</p>
+                        <p id="dawn"></p>
+                    </div>
+                </div>   
+
+            </div>
+
+
+            <div id="div-dayLength" class="col align-self-center">
+                <i id="day-length-arrow" class="fa-solid fa-arrows-left-right-to-line"></i>
+                <p>Dagens längd</p>
+                <p id="day-length"></p>
+            </div>
+
+
+            <div class="col">
+                <div class="flex" class="row">
+                    <img id="sunset-img" src="img/sunset ps.png" alt="en ikon för solnedgång">
+                </div>
+
+                <div id="div-sunset-dusk" class="d-flex flex-row">
+                    <div id="div-sunset">
+                        <p>Solnedgång</p>
+                        <p id="sunset"></p>
+                    </div>
+                    <div id="div-dusk">
+                        <p>Skymning</p>
+                        <p id="dusk"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- <div id="div-img" class="row">
             <div class="col">
                 <img id="sunrise-img" src="img/sunrise ps.png" alt="en ikon för en soluppgång">
             </div>
@@ -76,7 +127,9 @@
                     <p id="dusk"></p>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+
 
     </div>
 

@@ -13,6 +13,10 @@ body {
     background-size: 100% 100%;
 }
 
+.flex {
+    justify-content: center;
+}
+
 #datum {
     font-weight: bold;
     font-size: 1.2em;
@@ -34,7 +38,7 @@ body {
     margin-bottom: 10px;
 }
 
-#tidszon {
+#tidszon-text {
     margin: 0;
 }
 
@@ -44,34 +48,35 @@ body {
     font-size: 0.9em;
 }
 
-
-#div-sunrise-dawn {
-    display: flex;
-    /* justify-content: center; */
-}
-
 #sunrise-img {
     width: 150px;
     height: 100px;
     margin-bottom: 20px;
 }
 
-#div-dayLength {
+#div-sunrise-dawn {
     justify-content: center;
-    /* margin-top: 70px; */
 }
 
 #div-sunrise {
-    margin-right: 50px;
+    padding-right: 75px;
 }
 
 #div-dawn {
-    margin-right: 50px;
+    margin-right: 45px;
 }
 
-#div-sunset-dusk {
-    display: flex;
-    /* justify-content: center; */
+#day-length-img {
+    width: 150px;
+    height: 150px;
+}
+
+#day-length-arrow {
+    font-size: 1.5em;
+}
+
+#div-dayLength {
+    justify-content: center;
 }
 
 #sunset-img {
@@ -81,11 +86,15 @@ body {
 }
 
 #div-sunset {
-    margin-left: 50px;
+    padding-right: 74px;
+    
+}
+#div-dusk {
+    margin-right: 18px;
 }
 
-#div-dusk {
-    margin-left: 50px;
+#div-sunset-dusk {
+    justify-content: center;
 }
 
 #div-left-btn {
