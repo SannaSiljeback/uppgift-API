@@ -69,7 +69,7 @@ async function fetchData(url) {
   }
 }
 
-//gör så att svenska sidan visas som default
+//gör att svenska sidan visas som default
 fetchData(sweUrlDefault);
 
 //array för de olika url
