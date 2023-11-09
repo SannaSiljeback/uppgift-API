@@ -4,7 +4,6 @@ const espUrl = "https://api.sunrisesunset.io/json?lat=41.385&lng=2.173";
 const argUrl = "https://api.sunrisesunset.io/json?lat=-34.607&lng=-58.437";
 const auUrl = "https://api.sunrisesunset.io/json?lat=-33.868&lng=151.209";
 
-
 //hämtar idn som behövs
 let city = document.getElementById('city');
 let timeZone = document.getElementById('timezone');
@@ -14,8 +13,7 @@ let dawn = document.getElementById('dawn');
 let sunset = document.getElementById('sunset');
 let dusk = document.getElementById('dusk');
 
-
-//få fram dagens datum
+//får fram dagens datum
 let date = new Date();
 date.toLocaleDateString('sv-SE');
 let day = date.getDate();
@@ -24,9 +22,7 @@ let year = date.getFullYear();
 let currentDate = `${day}/${month}-${year}`;
 document.getElementById('datum').innerHTML = currentDate;
 
-
-
-//fetchar och error hanterar
+//fetchar data och error hanterar
 async function fetchData(url) {
     try {
         let response = await fetch(url);
@@ -34,16 +30,12 @@ async function fetchData(url) {
         if (response.ok === false) {
             throw new Error(`HTTP error code: ${response.status}, HTTP error message: ${response.statusText}`);
         }
-
         let data = await response.json(); 
-    
 
-        //talar om hur den ska bygga koden
+        //hittar grund objektet i apit
+        let resultsObject = data.results;
 
-        //hittar grund objektet
-        let resultsObject = data.results; // får ut hela objektet
-
-        //hittar ett specifikt objekt i grund objektet
+        //hittar de specifika objekten i grund objektet
         let timeZoneValue = resultsObject.timezone;
         timeZone.innerHTML = timeZoneValue;
 
@@ -79,15 +71,14 @@ async function fetchData(url) {
 fetchData(sweUrlDefault);
 
 
-
-//lösning för blädder funktion med array
-//array för mina olika url
+//array för de olika url
 let urlArray = [
     sweUrlDefault,
     espUrl,
     argUrl,
     auUrl
 ];
+
 //array för att koppla namn till varje url
 const cityNames = [
     "Stockholm",
@@ -96,7 +87,7 @@ const cityNames = [
     "Sydney"
 ];
 
-
+//lösning för blädder funktion genom knapparna med arrayen
 let urlIndex = 0;
 
 function fetchNext(){

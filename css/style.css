@@ -61,7 +61,9 @@ body {
     justify-content: center;
     margin-top: 80px;
 
-    background-color: rgba(218, 176, 128, 0.6); 
+    /* background-color: rgba(218, 176, 128, 0.7);  */
+    background-color: rgba(214, 173, 130, 0.8);
+
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.1);
@@ -77,7 +79,10 @@ body {
 
 #div-sunrise-dawn {
     justify-content: center;
-    background-color: rgba(218, 176, 128, 0.6);
+
+    /* background-color: rgba(218, 176, 128, 0.7); */
+    background-color: rgba(214, 173, 130, 0.8);
+
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
@@ -123,7 +128,9 @@ body {
 #div-sunset-dusk {
     justify-content: center;
 
-    background-color: rgba(218, 176, 128, 0.6);
+    /* background-color: rgba(218, 176, 128, 0.7); */
+    background-color: rgba(214, 173, 130, 0.8);
+
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
