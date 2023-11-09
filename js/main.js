@@ -75,7 +75,7 @@ fetchData(sweUrlDefault);
 //array för de olika url
 let urlArray = [sweUrlDefault, espUrl, argUrl, auUrl];
 
-//array för att koppla namn till varje url
+//array för att koppla huvudstad till varje url
 const cityNames = ["Stockholm", "Madrid", "Buenos Aires", "Sydney"];
 
 //lösning för kunna bläddra genom apierna med knapparna
