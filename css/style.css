@@ -1,158 +1,157 @@
 body {
-    font-family: 'Heebo';
-    font-size: x-large;
-    background-color: #FBE8C5;
+  font-family: "Heebo";
+  font-size: x-large;
+  background-color: #fbe8c5;
 }
 
 /* styling for texts */
 #margin {
-    margin-bottom: 3px;
-    font-weight: bold;
-    font-size: 0.95em;
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 0.95em;
 }
 
 .time-text {
-    font-size: 0.95em;
+  font-size: 0.95em;
 }
 
 /* styling for first row */
 #div-cities {
-    height: 350px;
-    background-image: url('../img/sjö.jpg');
-    box-shadow: 0 26px 58px 0 rgba(0, 0, 0, .22),
-                0 5px 14px 0 rgba(0, 0, 0, .18);
-    background-size: 100% 100%;
-    border-radius: 20px;
+  height: 350px;
+  background-image: url("../img/sjö.jpg");
+  box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+    0 5px 14px 0 rgba(0, 0, 0, 0.18);
+  background-size: 100% 100%;
+  border-radius: 20px;
 }
 
 #datum {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-top: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #glass-effect {
-    background: rgba(255, 255, 255, 0);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.3px);
-    margin-top: 20px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.3px);
+  margin-top: 20px;
 }
 
 #city {
-    padding-top: 35px;
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  padding-top: 35px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 #tidszon-text {
-    margin: 0;
+  margin: 0;
 }
 
 #timezone {
-    padding-bottom: 20px;
-    font-style: italic;
-    font-size: 0.9em;
+  padding-bottom: 20px;
+  font-style: italic;
+  font-size: 0.9em;
 }
 
 /* styling for second row */
 .divs-sun {
-    justify-content: center;
-    margin-top: 80px;
-    background-color: rgba(214, 173, 130, 0.7);
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  margin-top: 80px;
+  background-color: rgba(214, 173, 130, 0.7);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.1);
 }
 
 /* styling för sunrise kolumnen */
 #sunrise-img {
-    width: 150px;
-    height: 100px;
-    margin-bottom: 30px;
-    margin-top: 20px;
+  width: 150px;
+  height: 100px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 #div-sunrise-dawn {
-    justify-content: center;
-    background-color: rgba(214, 173, 130, 0.7);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+  justify-content: center;
+  background-color: rgba(214, 173, 130, 0.7);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 #div-sunrise {
-    padding-right: 75px;
+  padding-right: 75px;
 }
 
 #div-dawn {
-    margin-right: 45px;
+  margin-right: 45px;
 }
 
 /* styling för day length kolumnen */
 #div-dayLength {
-    justify-content: center;
-    margin-top: -50px;
+  justify-content: center;
+  margin-top: -50px;
 }
 
 #dayLength-img {
-    width: 140px;
-    height: 90px;
-    margin-bottom: 10px;
+  width: 140px;
+  height: 90px;
+  margin-bottom: 10px;
 }
 
 /* styling för sunset kolumnen */
 #sunset-img {
-    width: 150px;
-    height: 100px;
-    margin-bottom: 30px;
-    margin-top: 20px;
+  width: 150px;
+  height: 100px;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 #div-sunset {
-    padding-right: 74px;
+  padding-right: 74px;
 }
 
 #div-dusk {
-    margin-right: 18px;
+  margin-right: 18px;
 }
 
 #div-sunset-dusk {
-    justify-content: center;
-    background-color: rgba(214, 173, 130, 0.7);
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-    box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  background-color: rgba(214, 173, 130, 0.7);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  box-shadow: 0px 25px 20px -20px rgba(0, 0, 0, 0.1);
 }
 
 /* styling för knappar */
 #div-left-btn {
-    display: flex;
-    justify-content: end;
-    margin-top: 30px;
+  display: flex;
+  justify-content: end;
+  margin-top: 30px;
 }
 
 #left-btn {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    font-size: 1.2em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 1.2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #div-right-btn {
-    display: flex;
-    justify-content: start;
-    margin-top: 30px;
+  display: flex;
+  justify-content: start;
+  margin-top: 30px;
 }
 
 #right-btn {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    font-size: 1.2em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 1.2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
-
