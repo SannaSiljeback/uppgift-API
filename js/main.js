@@ -39,7 +39,8 @@ async function fetchData(url) {
 
     //hittar de specifika objekten inuti grund objektet
     let timeZoneValue = resultsObject.timezone;
-    timeZone.innerHTML = timeZoneValue;
+    let timeZoneValueBr = timeZoneValue.replace("America/", "");
+    timeZone.innerHTML = timeZoneValueBr;
 
     let dayLengthValue = resultsObject.day_length;
     let dayLengthValueTim = dayLengthValue + "<br>TIM";

@@ -201,3 +201,33 @@ body {
   }
 
 }
+
+/* extra small size on bootstrap */
+@media screen and (max-width: 576px) {
+
+  #glass-box {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    padding: 0px;
+  }
+
+  #timezone {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  #div-sunrise, #div-sunset {
+    padding-right: 30px;
+  }
+
+  #div-dawn{
+    padding-left: 30px;
+    margin-right: 15px;
+  }
+
+  #div-dusk {
+    padding-left: 20px;
+    margin-right: 10px;
+  }
+
+}
