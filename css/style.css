@@ -83,12 +83,12 @@ body {
   margin-bottom: 20px;
 }
 
-#div-sunrise {
-  padding-right: 75px;
+#div-sunrise, #div-sunset {
+  padding-right: 55px;
 }
 
 #div-dawn {
-  margin-right: 45px;
+  margin-right: 35px;
 }
 
 /* styling för day length kolumnen */
@@ -111,12 +111,8 @@ body {
   margin-top: 20px;
 }
 
-#div-sunset {
-  padding-right: 74px;
-}
-
 #div-dusk {
-  margin-right: 18px;
+  margin-right: 20px;
 }
 
 #div-sunset-dusk {
@@ -154,4 +150,54 @@ body {
   border: none;
   font-size: 1.2em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* smaller desktop/large on bootstrap */
+@media screen and (max-width: 1200px) {
+  
+  #div-sunrise, #div-sunset {
+    padding-right: 30px;
+    padding-left: 20px;
+  }
+
+  #div-dawn {
+    padding-left: 10px;
+  }
+
+  #timezone {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+}
+
+/* tablet/medium on bootstrap */
+@media screen and (max-width: 992px) {
+
+  #div-dayLength {
+    margin-top: 50px;
+  }
+  
+  .divs-sun {
+    margin-top: 20px;
+  }
+
+}
+
+/* mobile/small on bootstrap */
+@media screen and (max-width: 768px ) {
+  
+  #div-sunrise, #div-sunset {
+    padding-right: 50px;
+    padding-left: 0px;
+  }
+
+  #div-dawn {
+    padding-left: 50px;
+  }
+
+  #div-dusk {
+    padding-left: 40px;
+  }
+
 }
